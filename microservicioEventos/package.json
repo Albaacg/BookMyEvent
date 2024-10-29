@@ -1,0 +1,17 @@
+{
+  "name": "microservicioeventos",
+  "version": "1.0.0",
+  "description": "Microservicio para gestionar todo lo relacionado con los eventos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "microservice",
+    "express"
+  ],
+  "author": "albacg",
+  "license": "ISC"
+}
