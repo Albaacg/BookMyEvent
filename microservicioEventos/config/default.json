@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://root:root@eventos.h2j6f.mongodb.net/?retryWrites=true&w=majority&appName=Eventos"
+}
