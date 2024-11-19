@@ -46,8 +46,8 @@ app.get('/uploadData', async (req, res) => {
 
         await Evento.insertMany(eventos);
 
-        res.json({ message: 'Data uploaded successfully' });
-
+        //res.json({ message: 'Data uploaded successfully' });
+res.json(data)
         console.log('Events uploaded successfully');
 
     } catch (error) {
