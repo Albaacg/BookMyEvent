@@ -16,7 +16,7 @@ CREATE TABLE user (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     username VARCHAR(45) NOT NULL,
-    password VARCHAR(45) NOT NULL
+    password VARCHAR(75) NOT NULL
 );
 
 -- Comprobar si existe la tabla favoriteEvents y eliminarla si es necesario
