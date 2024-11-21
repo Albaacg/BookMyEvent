@@ -1,0 +1,29 @@
+/* Página de Artistas */
+.artists-page {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .artists-page h1 {
+    color: #6200ea;
+    font-size: 2rem;
+  }
+  
+  .artists-page ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+  
+  .artists-page li {
+    margin: 0.8rem 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .artists-page li:hover {
+    color: #6200ea;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  

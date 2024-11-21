@@ -1,0 +1,71 @@
+/* Estructura principal */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #616161; /* Color gris del fondo */
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  /* Contenedor de los botones */
+  .button-container {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  /* Estilo de los botones */
+  .menu-item {
+    background-color: #c2185b; /* Color rosado del botón */
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+  }
+  
+  .menu-item:hover {
+    background-color: #ad1457; /* Cambio al pasar el mouse */
+    transform: scale(1.05);
+  }
+  
+  .menu-item p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Estilo de los íconos */
+  .icon {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .music-icon {
+    background-image: url("../imagenes/notamusical.png");
+  }
+  
+  /*.location-icon {
+    background-image: url("https://img.icons8.com/ios-filled/50/ffffff/map-marker.png");
+  }
+  
+  .star-icon {
+    background-image: url("https://img.icons8.com/ios-filled/50/ffffff/star.png");
+  }*/
+  
