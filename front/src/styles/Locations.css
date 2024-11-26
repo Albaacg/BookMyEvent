@@ -25,4 +25,10 @@
     color: #4b00b0;
     cursor: pointer;
   }
+
+  .locations-page li:hover {
+    color: #6200ea;
+    cursor: pointer;
+    font-weight: bold;
+  }
   

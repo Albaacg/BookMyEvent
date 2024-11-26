@@ -25,4 +25,10 @@
     color: #555;
     font-style: italic;
   }
+
+  .favorites-page li:hover {
+    color: #6200ea;
+    cursor: pointer;
+    font-weight: bold;
+  }
   

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Locations.css";
 
 function Locations() {
   const [locations] = useState([
