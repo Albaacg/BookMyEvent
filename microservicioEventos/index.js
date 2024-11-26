@@ -4,7 +4,7 @@ const app = express();
 const axios = require('axios');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
-const port = 4000;
+const port = 5000;
 const apiKey = process.env.API_KEY;
 
 // Conectar a MongoDB
