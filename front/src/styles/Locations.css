@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+}
+
+.locations-page {
+    padding: 2rem;
+    text-align: center;
+}
+
+.locations-page h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.locations-page ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+    gap: 20px; /* Espaciado entre filas y columnas */
+    margin-top: 1.5rem;
+    justify-items: center; /* Centrar los elementos dentro de cada celda */
+}
+
+.locations-page li {
+    background-color: #ff007f;
+    border-radius: 15px;
+    width: 100%; /* Ocupa todo el espacio disponible en la celda */
+    max-width: 300px; /* Limitar el ancho máximo */
+    height: auto;
+    padding: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Ordenar texto e imagen en columnas */
+    align-items: center;
+}
+
+.locations-page li strong {
+    font-size: 1.2rem;
+    margin-bottom: 5px; /* Espacio reducido entre el texto y la imagen */
+}
+
+.locations-page li img {
+    width: 100%;
+    height: 180px; /* Mantener proporción de la imagen */
+    object-fit: cover; /* Recortar proporcionalmente */
+    border-radius: 10px;
+}
+
+.locations-page li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.locations-page li:hover strong {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .locations-page ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .locations-page ul {
+        grid-template-columns: repeat(1, 1fr); /* 1 columna en pantallas pequeñas */
+    }
+}

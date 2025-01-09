@@ -1,0 +1,125 @@
+/* Contenedor principal */
+.home-container {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f5f5f5; /* Fondo claro */
+  min-height: 100vh; /* Ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido hacia arriba */
+  gap: 1rem; /* Espaciado entre el título y otros elementos */
+}
+
+/* Título principal */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Espacio entre el título y las tarjetas */
+  margin-top: 1rem; /* Margen superior reducido */
+  color: #6200ea; /* Color principal */
+  letter-spacing: 1px; /* Espaciado de letras */
+  font-family: Arial, sans-serif; /* Fuente consistente */
+}
+
+/* Contenedor de las tarjetas */
+.home-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsivo */
+  gap: 20px; /* Espaciado entre las tarjetas */
+  width: 100%;
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  justify-items: center; /* Centrar las tarjetas horizontalmente */
+  padding-bottom: 2rem; /* Espaciado inferior */
+}
+
+/* Tarjetas individuales */
+.home-card {
+  background-color: #ff007f; /* Color rosado consistente */
+  border: 1px solid #ddd; /* Borde suave */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%;
+  max-width: 300px;
+  padding: 1.5rem; /* Espaciado interno */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s; /* Animaciones suaves */
+  cursor: pointer;
+}
+
+.home-card:hover {
+  transform: translateY(-10px); /* Mueve la tarjeta hacia arriba al pasar el mouse */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  background-color: #e0006f; /* Ligero cambio de color */
+}
+
+/* Cambiar color del texto al pasar el mouse */
+.home-card:hover p {
+  color: #000; /* Texto negro */
+}
+
+/* Iconos en las tarjetas */
+.icon {
+  width: 100px; /* Aumenta el ancho del icono */
+  height: 100px; /* Aumenta la altura del icono */
+  margin: 1rem auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Icono de Partidos */
+.partidos-icon {
+  background-image: url("../imagenes/partidos.jpg"); /* Ruta de la imagen */
+}
+
+/* Icono de Ubicaciones */
+.ubicaciones-icon {
+  background-image: url("../imagenes/ubicacion.png"); /* Ruta de la imagen */
+}
+
+/* Icono de Favoritos */
+.favoritos-icon {
+  background-image: url("../imagenes/favoritos.png"); /* Ruta de la imagen */
+}
+
+/* Texto dentro de las tarjetas */
+.home-card p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff; /* Texto blanco por defecto */
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem; /* Reduce el espaciado en pantallas pequeñas */
+  }
+
+  .home-card {
+    max-width: 100%; /* Ocupa el ancho completo en pantallas pequeñas */
+  }
+
+  .icon {
+    width: 80px; /* Ajuste menor para pantallas pequeñas */
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .icon {
+    width: 70px; /* Iconos más pequeños */
+    height: 70px;
+  }
+
+  .home-card {
+    padding: 1rem; /* Reduce el padding interno */
+  }
+}

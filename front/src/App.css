@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+}
+
+.home-container {
+  margin: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-button:hover {
+  background-color: #4b00b0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.favorites-page,
+.artists-page,
+.locations-page {
+  padding: 2rem;
+}
+
+h1 {
+  color: #6200ea;
+}

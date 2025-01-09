@@ -1,0 +1,75 @@
+/* Contenedor principal: ocupa todo el ancho */
+.location-details {
+  padding: 20px;
+  margin: 0;
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: #f9f9f9;
+}
+
+/* Título principal */
+.location-details h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* Imagen de la ciudad */
+.city-image {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.city-image img {
+  width: 100%; /* Imagen a pantalla completa */
+  max-height: 400px;
+  object-fit: cover; /* Mantener proporciones recortando si es necesario */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de los partidos */
+.matches-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ocupa todo el ancho */
+  gap: 20px; /* Espacio entre tarjetas */
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Tarjetas individuales de partidos */
+.match-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.match-card h2 {
+  font-size: 1.5rem;
+  color: #ff007f;
+  margin-bottom: 10px;
+}
+
+.match-card p {
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.match-card p strong {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Mensajes de carga o error */
+.error-message,
+.loading-message {
+  font-size: 1.2rem;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,53 @@
+/* Página de Partidos */
+.partidos-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.partidos-page h1 {
+  color: #6200ea;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.partidos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
+  gap: 20px;
+  justify-items: center; /* Centrar las tarjetas en las celdas */
+}
+
+.partido-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  max-width: 300px;
+  width: 100%; /* Ocupa todo el ancho disponible en la celda */
+}
+
+.partido-card h2 {
+  font-size: 1.5rem;
+  color: #6200ea;
+  margin-bottom: 1rem;
+}
+
+.partido-card p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.partido-card p strong {
+  font-weight: bold;
+  color: #000;
+}
+
+.partido-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
