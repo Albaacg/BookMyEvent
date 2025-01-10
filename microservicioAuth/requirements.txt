@@ -11,3 +11,4 @@ python-multipart==0.0.5
 requests-oauthlib==2.0.0
 passlib==1.7.4
 bcrypt==4.2.1
+oauthlib==3.2.2
