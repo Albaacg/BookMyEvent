@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/Partidos.css";
 import axios from "axios";
+import PartidoCard from "./PartidoCard";
 
 function Partidos() {
-  const navigate = useNavigate();
   const [partidos, setPartidos] = useState([]); // Initialize with an empty array
 
   // Fetch data from the microservice
@@ -27,13 +26,7 @@ function Partidos() {
       <h1>PARTIDOS</h1>
       <div className="partidos-container">
         {partidos.map((partido, index) => (
-          <div className="partido-card" key={index}>
-            <h2>{partido.name}</h2>
-            <p><strong>Ubicación:</strong> {partido.city}</p>
-            <p><strong>Día:</strong> {partido.date}</p>
-            <p><strong>Hora:</strong> {partido.time}</p>
-            <p><strong>Precio:</strong> {partido.price}</p>
-          </div>
+          <PartidoCard partido={partido}/>
         ))}
       </div>
     </div>

@@ -122,7 +122,7 @@ class DeleteFavoriteEvent(BaseModel):
     event: str # The name of the event to delete from the user's favorites
 
 class FavoriteEvent(BaseModel):
-    roadID: str 
+    eventID: str 
 
 # Route to add a favorite event to the user
 @app.post("/favorite-events/add")
@@ -133,7 +133,7 @@ async def add_favorite_event(
         cursor = db.cursor()
         
         # Check if the event is already a favorite
-        query = "SELECT * FROM favoriteEvents WHERE email=%s AND roadID=%s"
+        query = "SELECT * FROM favoriteEvents WHERE email=%s AND eventID=%s"
         cursor.execute(query, (current_user, favorite_event.event))
         existing_favorite = cursor.fetchone()
 
@@ -142,7 +142,7 @@ async def add_favorite_event(
             raise HTTPException(status_code=400, detail="The event is already a favorite")
 
         # Add the event to the user's favorites
-        insert_query = "INSERT INTO favoriteEvents (email, roadID) VALUES (%s, %s)"
+        insert_query = "INSERT INTO favoriteEvents (email, eventID) VALUES (%s, %s)"
         cursor.execute(insert_query, (current_user, favorite_event.event))
         
         db.commit()
@@ -159,7 +159,7 @@ async def delete_favorite_event(
         cursor = db.cursor()
         
         # Delete the event from the user's favorites
-        delete_query = "DELETE FROM favoriteEvents WHERE email=%s AND roadID=%s"
+        delete_query = "DELETE FROM favoriteEvents WHERE email=%s AND eventID=%s"
         cursor.execute(delete_query, (current_user, favorite_event.event))
         
         db.commit()
@@ -173,7 +173,7 @@ async def get_all_favorite_events(current_user: str = Depends(getCurrentUser)):
     cursor = db.cursor()
     
     # Get all the favorite events of the user
-    query = "SELECT roadID, email FROM favoriteEvents WHERE email=%s"
+    query = "SELECT eventID, email FROM favoriteEvents WHERE email=%s"
     cursor.execute(query, (current_user,))
     favorite_events = cursor.fetchall()
     
@@ -189,8 +189,8 @@ async def check_favorite_event(
     cursor = db.cursor()
     
     # Check if the event is a favorite
-    query = "SELECT * FROM favoriteEvents WHERE email=%s AND roadID=%s"
-    cursor.execute(query, (current_user, event.roadID))
+    query = "SELECT * FROM favoriteEvents WHERE email=%s AND eventID=%s"
+    cursor.execute(query, (current_user, event.eventID))
     favorite_event = cursor.fetchone()
     
     cursor.close()

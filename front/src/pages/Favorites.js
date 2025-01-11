@@ -1,23 +1,51 @@
-import React, { useState } from "react";
-import "../styles/Favorites.css"; 
+import React, { useEffect, useState } from "react";
+import "../styles/Favorites.css";
+import axios from "axios";
+import PartidoCard from "./PartidoCard";
 
 function Favorites() {
-  const [favorites] = useState([
-    { id: 1, name: "Concierto de Rock", date: "2024-12-01" },
-    { id: 2, name: "Festival de Cine", date: "2024-12-05" },
-  ]);
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/favorite-events/all", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((response) => {
+        console.log("Favoritos:", response.data);
+        const eventPromise = [];
+        for (const fav of response.data) {
+          const promise = axios.get(`http://localhost:4000/eventos/id/${fav.eventID}`)
+            .then(response => response.data)
+          eventPromise.push(promise);
+        }
+        Promise.all(eventPromise)
+          .then((events) => {
+            console.log("Eventos favoritos:", events);
+            setFavorites(events);
+
+          })
+          .catch((error) => {
+            console.error("Error fetching favorites:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error fetching favorites:", error);
+      });
+  }, []);
+
+
 
   return (
-    <div className="favorites-page">
+    <div className="partidos-page">
       <h1>Favoritos</h1>
       {favorites.length > 0 ? (
-        <ul>
+      <div className="partidos-container">
           {favorites.map((fav) => (
-            <li key={fav.id}>
-              {fav.name} - {new Date(fav.date).toLocaleDateString()}
-            </li>
+            <PartidoCard partido={fav} />
           ))}
-        </ul>
+</div>
       ) : (
         <p>No tienes eventos favoritos.</p>
       )}

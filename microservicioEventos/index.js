@@ -1,3 +1,5 @@
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
@@ -79,7 +81,30 @@ app.get('/eventos/all', async (req, res) => {
     }
 })
 
-// Obtener un evento específico por ID
+/**
+ * @swagger
+ * /events/id/{eventID}:
+ *   get:
+ *     description: Get the data from the database by ID
+ *     parameters:
+ *       - in: path
+ *         name: eventID
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the event
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Evento'
+ *       404:
+ *         description: Evento not found
+ *       500:
+ *         description: Error retrieving the data
+ */
 app.get('/eventos/id/:id', async (req, res) => {
     try {
         const evento = await Evento.findOne({ id: req.params.id });
@@ -145,6 +170,38 @@ app.get('/eventos/img/:id', async (req, res) => {
     }
 })
 
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Events API',
+            version: '1.0.0',
+            description: 'Events API documentation',
+        },
+        components: {
+            schemas: {
+                Evento: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string' },
+                        name: { type: 'string' },
+                        date: { type: 'string' },
+                        time: { type: 'string' },
+                        city: { type: 'string' },
+                        price: { type: 'string' },
+                       
+                    },
+                },
+            },
+        },
+    },
+    apis: [__filename],
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Agregar Swagger a Express
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 

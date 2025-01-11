@@ -30,8 +30,8 @@ const Login = () => {
       setSuccess(response.data.message); // Guardar el mensaje de éxito
       console.log("Login exitoso:", response.data);
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.token); // Guardar el token en el localStorage
-        console.log("Token guardado:", response.data.token);
+        localStorage.setItem("token", response.data.access_token); // Guardar el token en el localStorage
+        console.log("Token guardado:", response.data.access_token);
         // Redirigir al usuario a la página de inicio
         navigate("/home");
       }
