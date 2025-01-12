@@ -2,14 +2,16 @@
 .partidos-page {
   padding: 2rem;
   text-align: center;
+  background-color: #e6f7ff; /* Fondo azul claro */
 }
 
 .partidos-page h1 {
-  color: #6200ea;
+  color: #ffa500; /* Naranja */
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }
 
+/* Contenedor de los partidos */
 .partidos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diseño responsivo */
@@ -17,37 +19,40 @@
   justify-items: center; /* Centrar las tarjetas en las celdas */
 }
 
+/* Tarjeta de partido */
 .partido-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #00509e; /* Fondo azul oscuro */
+  border: none;
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
   max-width: 300px;
   width: 100%; /* Ocupa todo el ancho disponible en la celda */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .partido-card h2 {
   font-size: 1.5rem;
-  color: #6200ea;
+  color: #ffa500; /* Naranja */
   margin-bottom: 1rem;
 }
 
 .partido-card p {
   font-size: 1rem;
-  color: #333;
+  color: #ffffff; /* Blanco para el texto general */
   margin: 0.5rem 0;
 }
 
 .partido-card p strong {
   font-weight: bold;
-  color: #000;
+  color: #ffffff; /* Blanco con negrita para texto destacado */
 }
 
+/* Hover en la tarjeta de partido */
 .partido-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #003b7d; /* Azul aún más oscuro al hacer hover */
   cursor: pointer;
 }

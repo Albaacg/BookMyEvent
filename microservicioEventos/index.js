@@ -35,7 +35,25 @@ const EventoSchema = new mongoose.Schema({
 // Crear modelo de Mongoose
 const Evento = mongoose.model('Evento', EventoSchema);
 
-// Cargar todos los eventos a la base de datos
+/**
+ * @swagger
+ * /uploadData:
+ *   get:
+ *     description: Uploads the data from the api of ticketmaster into the database
+ *     responses:
+ *       200:
+ *         description: Data uploaded successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Error uploading the data
+ */
+
 app.get('/uploadData', async (req, res) => {
     try {
         const url = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}`;
@@ -44,7 +62,7 @@ app.get('/uploadData', async (req, res) => {
         const data = response.data;
 
         await Evento.deleteMany({});
-        
+
         const eventos = data._embedded.events.map(event => {
             return {
                 id: event.id,
@@ -58,8 +76,8 @@ app.get('/uploadData', async (req, res) => {
 
         await Evento.insertMany(eventos);
 
-        //res.json({ message: 'Data uploaded successfully' });
-res.json(data)
+        res.json({ message: 'Data uploaded successfully' });
+        res.json(data)
         console.log('Events uploaded successfully');
 
     } catch (error) {
@@ -68,7 +86,24 @@ res.json(data)
     }
 })
 
-// Obtener todos los eventos
+/**
+ * @swagger
+ * /eventos/all:
+ *   get:
+ *     description: Get all the data from the database
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Evento'
+ *       500:
+ *         description: Error retrieving the data
+ */
+
 app.get('/eventos/all', async (req, res) => {
     try {
         const eventos = await Evento.find();
@@ -83,7 +118,7 @@ app.get('/eventos/all', async (req, res) => {
 
 /**
  * @swagger
- * /events/id/{eventID}:
+ * /eventos/id/{eventID}:
  *   get:
  *     description: Get the data from the database by ID
  *     parameters:
@@ -117,7 +152,30 @@ app.get('/eventos/id/:id', async (req, res) => {
     }
 })
 
-// Obtener eventos por ciudad
+/**
+ * @swagger
+ * /eventos/city/{eventCity}:
+ *  get:
+ *   description: Get the data from the database by city
+ *   parameters:
+ *   - in: path
+ *      name: eventCity  
+ *      schema:
+ *          type: string
+ *      required: true
+ *      description: The city of the event
+ *   responses:
+ *    200:
+ *     description: Data retrieved successfully
+ *     content:
+ *        application/json:
+ *         schema:
+ *           type: array    
+ *         items:
+ *          $ref: '#/components/schemas/Evento'
+ *    500:
+ *      description: Error retrieving the data
+ */
 app.get('/eventos/city/:city', async (req, res) => {
     try {
         const eventos = await Evento.find({ city: req.params.city });
@@ -130,7 +188,32 @@ app.get('/eventos/city/:city', async (req, res) => {
     }
 })
 
-// Obtener eventos por fecha
+/**
+ * @swagger
+ * /eventos/date/{eventDate}:
+ *  get:
+ *    description: Get the data from the database by date
+ *    parameters:
+ *      - in: path
+ *          name: eventDate
+ *          schema:
+ *             type: string
+ *          required: true
+ *          description: The date of the event
+ *    responses:
+ *      200:
+ *        description: Data retrieved successfully
+ *        content:
+ *         application/json:
+ *            schema:
+ *              type: array
+ *            items:
+ *              $ref: '#/components/schemas/Evento'
+ *      500:
+ *       description: Error retrieving the data
+ */
+
+
 app.get('/eventos/date/:date', async (req, res) => {
     try {
         const eventos = await Evento.find({ date: req.params.date });
@@ -143,7 +226,33 @@ app.get('/eventos/date/:date', async (req, res) => {
     }
 })
 
-// Obtener eventos por nombre
+/**
+ * @swagger
+ * /eventos/name/{eventName}:
+ *  get:
+ *   description: Get the data from the database by name
+ *   parameters:
+ *      - in: path
+ *          name: eventName
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: The name of the event
+ *    responses:
+ *     200:
+ *      description: Data retrieved successfully
+ *      content:
+ *         application/json:
+ *            schema:
+ *              type: array
+ *            items:
+ *             $ref: '#/components/schemas/Evento'
+ *     500:
+ *      description: Error retrieving the data
+ * 
+ */
+
+
 app.get('/eventos/name/:name', async (req, res) => {
     try {
         const eventos = await Evento.find({ name: req.params.name });
@@ -156,7 +265,7 @@ app.get('/eventos/name/:name', async (req, res) => {
     }
 })
 
-//obtener imagenes de eventos
+
 app.get('/eventos/img/:id', async (req, res) => {
     try {
         const url = `http://app.ticketmaster.com/discovery/v2/events/${req.params.id}/images.json?apikey=${apiKey}`;
@@ -189,7 +298,7 @@ const swaggerOptions = {
                         time: { type: 'string' },
                         city: { type: 'string' },
                         price: { type: 'string' },
-                       
+
                     },
                 },
             },

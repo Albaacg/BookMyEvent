@@ -1,34 +1,34 @@
 /* Página de Favoritos */
 .favorites-page {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .favorites-page h1 {
-    color: #6200ea;
-    font-size: 2rem;
-  }
-  
-  .favorites-page ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-  }
-  
-  .favorites-page li {
-    margin: 0.8rem 0;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .favorites-page li span {
-    color: #555;
-    font-style: italic;
-  }
+  padding: 2rem;
+  text-align: center;
+  background-color: #00509e; /* Fondo azul */
+}
 
-  .favorites-page li:hover {
-    color: #6200ea;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
+.favorites-page h1 {
+  color: #ffa500; /* Título en naranja */
+  font-size: 2rem;
+}
+
+.favorites-page ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.favorites-page li {
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  color: #ffffff; /* Texto general en blanco */
+}
+
+.favorites-page li span {
+  color: #ffa500; /* Texto en cursiva naranja */
+  font-style: italic;
+}
+
+.favorites-page li:hover {
+  color: #ffa500; /* Cambia a naranja al pasar el mouse */
+  cursor: pointer;
+  font-weight: bold;
+}

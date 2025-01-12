@@ -1,55 +1,81 @@
 .auth-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #616161; /* Fondo gris */
-    color: #fff;
-  }
-  
-  .auth-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .auth-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 300px;
-  }
-  
-  .auth-container input {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 2px solid #c2185b;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  .auth-container button {
-    padding: 0.8rem;
-    background-color: #c2185b;
-    color: #fff;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .auth-container button:hover {
-    background-color: #ad1457;
-  }
-  
-  .auth-container p {
-    margin-top: 1rem;
-  }
-  
-  .auth-container .link {
-    color: #f06292;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Fondo claro */
+  color: #333; /* Texto oscuro */
+}
+
+.auth-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: rgb(17, 0, 255) !important; 
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+  background-color: #fff; /* Fondo blanco para el formulario */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.auth-container input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #ffa500; /* Naranja */
+  border-radius: 5px;
+  outline: none;
+}
+
+.auth-container input:focus {
+  border-color: #ff8c00; /* Naranja más oscuro en foco */
+}
+
+.auth-container button {
+  padding: 0.8rem;
+  background-color: #ffa500; /* Naranja */
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-container button:hover {
+  background-color: #ff8c00; /* Naranja más oscuro */
+}
+
+.auth-container p {
+  margin-top: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.auth-container .link {
+  color: #003366; /* Azul oscuro */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.auth-container .link:hover {
+  color: #001a33; /* Azul aún más oscuro en hover */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 0.9rem;
+  text-align: center;
+}
