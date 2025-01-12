@@ -64,6 +64,15 @@ function Register() {
         {message && <p className="success-message">{message}</p>}
         <button type="submit">Registrarse</button>
       </form>
+      <p>
+        ¿Ya tienes una cuenta?{" "}
+        <span
+          className="link"
+          onClick={() => navigate("/")}
+        >
+          Inicia sesión
+        </span>
+      </p>
     </div>
   );
 }

@@ -1,4 +1,10 @@
 /* Contenedor principal */
+.home-page {
+  padding: 2rem;
+  text-align: center;
+  background-color: #e6f7ff; /* Fondo azul claro */
+}
+
 .home-container {
   padding: 2rem;
   text-align: center;

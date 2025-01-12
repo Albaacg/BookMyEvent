@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.js";
 import Favorites from "./pages/Favorites.js";
@@ -14,28 +14,28 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
-    setIsAuthenticated(true)
-    console.log("Authenticated", isAuthenticated)
-  }
+    setIsAuthenticated(true);
+    console.log("Authenticated", isAuthenticated);
+  };
+
+  const currentPath = window.location.pathname;
+
   return (
     <Router>
       <div className="App">
-
-      {<Header />}               
+        {/* Mostrar el Header solo si no estamos en Login o Register */}
+        {!["/", "/register"].includes(currentPath) && <Header />}
 
         <Routes>
           {/* Ruta principal */}
           <Route path="/home" element={<Home />} />
           {/* Rutas de las otras páginas */}
-          
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/partidos" element={<Partidos />} />
-            <Route path="/locations" element={<Locations />} />
-            <Route path="/location/:city" element={<LocationDetails />} />
-            <Route path="/" element={<Login onLogin={handleLogin}/>} />
-            <Route path="/register" element={<Register />} /> 
-
-
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/partidos" element={<Partidos />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/location/:city" element={<LocationDetails />} />
+          <Route path="/" element={<Login onLogin={handleLogin} />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
@@ -43,4 +43,3 @@ function App() {
 }
 
 export default App;
-

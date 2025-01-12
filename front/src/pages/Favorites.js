@@ -3,6 +3,7 @@ import "../styles/Favorites.css";
 import axios from "axios";
 import PartidoCard from "./PartidoCard";
 
+
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
 

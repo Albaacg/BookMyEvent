@@ -4,7 +4,7 @@ import "../styles/Header.css";
 const Header = () => {
   const currentPath = window.location.pathname;
 
-  // Oculta el header en login y register
+  // Oculta el header en las rutas especificadas
   if (["/", "/register"].includes(currentPath)) {
     return null;
   }
@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <h1 className="logo">MiSitio</h1>
+        <h1 className="logo">BookMyEvent</h1>
         <nav className="nav">
           <ul className="nav-list">
             <li className="nav-item">

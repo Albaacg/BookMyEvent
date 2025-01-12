@@ -16,27 +16,28 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(""); // Limpia los errores previos
-    setSuccess(""); // Limpia mensajes previos de éxito
-
+  
     console.log("Iniciando sesión con:", form);
 
     try {
       const response = await axios.post("http://localhost:8000/login", {
+        name: "",
         email: form.email,
         password: form.password,
       });
-
+  
       // Si el login es exitoso
       setSuccess(response.data.message); // Guardar el mensaje de éxito
       console.log("Login exitoso:", response.data);
-
       if (response.status === 200) {
+        localStorage.setItem("token", response.data.access_token); // Guardar el token en el localStorage
+        console.log("Token guardado:", response.data.access_token);
         // Redirigir al usuario a la página de inicio
         navigate("/home");
       }
     } catch (err) {
       console.error("Error en el login:", err);
-
+  
       // Extraer el mensaje de error como texto
       const errorMessage =
         err.response?.data?.detail || "Error en el inicio de sesión.";
@@ -71,12 +72,12 @@ const Login = () => {
         <button type="submit">Iniciar Sesión</button>
       </form>
       <p>
-        ¿No tienes cuenta?{" "}
+        ¿No tienes una cuenta?{" "}
         <span
           className="link"
           onClick={() => navigate("/register")}
         >
-          Registrarse
+          Registrate
         </span>
       </p>
     </div>
